@@ -1,0 +1,15 @@
+<form method="post">
+    {% csrf_token %}
+    <h2>Leave Feedback for Swap</h2>
+    <label>Rating:
+        <select name="rating" required>
+            <option value="1">1 Star</option>
+            <option value="2">2 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="5">5 Stars</option>
+        </select>
+    </label>
+    <label>Comment: <textarea name="comment"></textarea></label>
+    <button type="submit">Submit</button>
+</form>

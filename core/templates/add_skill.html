@@ -1,0 +1,13 @@
+<form method="post">
+    {% csrf_token %}
+    <label>Name: <input type="text" name="name" required></label><br>
+    <label>Type:
+        <select name="skill_type" required>
+            <option value="OFF">Offered</option>
+            <option value="WAN">Wanted</option>
+        </select>
+    </label><br>
+    <label>Description: <textarea name="description"></textarea></label><br>
+    <label>Tags: <input type="text" name="tags"></label><br>
+    <button type="submit">Add Skill</button>
+</form>

@@ -1,0 +1,11 @@
+<h1>My Skills</h1>
+<a href="{% url 'add_skill' %}">Add Skill</a>
+<ul>
+{% for skill in skills %}
+    <li>
+        {{ skill.name }} ({{ skill.get_skill_type_display }})
+        <a href="{% url 'edit_skill' skill.id %}">Edit</a>
+        <a href="{% url 'delete_skill' skill.id %}">Delete</a>
+    </li>
+{% endfor %}
+</ul>
