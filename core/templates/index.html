@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkillExchange Admin Panel</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- Mobile Overlay -->
+      <div class="mobile-overlay" id="mobileOverlay"></div>
+
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <!-- Logo -->
+        <div class="sidebar-header">
+          <h1 class="logo">SkillExchange</h1>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="sidebar-nav">
+          <button class="nav-item" data-page="dashboard">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect width="18" height="18" x="3" y="3" rx="2" />
+              <path d="M3 9h18" />
+              <path d="M3 15h18" />
+              <path d="M9 3v18" />
+              <path d="M15 3v18" />
+            </svg>
+            Dashboard
+          </button>
+
+          <button class="nav-item" data-page="search">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+            Search
+          </button>
+
+          <button class="nav-item" data-page="swap-requests">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M8 3 4 7l4 4" />
+              <path d="M4 7h16" />
+              <path d="m16 21 4-4-4-4" />
+              <path d="M20 17H4" />
+            </svg>
+            Swap Requests
+          </button>
+
+          <button class="nav-item" data-page="profile">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+            Profile
+          </button>
+
+          <button class="nav-item" data-page="messages">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"
+              />
+              <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
+            </svg>
+            Messages
+          </button>
+
+          <button class="nav-item" data-page="settings">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"
+              />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+            Settings
+          </button>
+
+          <button class="nav-item active" data-page="admin-panel">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+              <path d="M19 11v2a7 7 0 0 1-14 0v-2" />
+              <path d="M19 11V9a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2" />
+            </svg>
+            Admin Panel
+          </button>
+        </nav>
+
+        <!-- Logout -->
+        <div class="sidebar-footer">
+          <button class="nav-item logout">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+              <polyline points="16,17 21,12 16,7" />
+              <line x1="21" y1="12" x2="9" y2="12" />
+            </svg>
+            Logout
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="4" y1="6" x2="20" y2="6" />
+              <line x1="4" y1="12" x2="20" y2="12" />
+              <line x1="4" y1="18" x2="20" y2="18" />
+            </svg>
+          </button>
+          <h1 class="page-title" id="pageTitle">Admin Panel</h1>
+        </header>
+
+        <!-- Content Area -->
+        <div class="content">
+          <!-- Admin Panel Content -->
+          <div class="page-content active" data-content="admin-panel">
+            <!-- Admin Tabs -->
+            <div class="admin-tabs">
+              <button class="tab-btn" data-tab="users">
+                <span class="tab-mobile">Users</span>
+                <span class="tab-desktop">Users</span>
+              </button>
+              <button class="tab-btn" data-tab="skill-listings">
+                <span class="tab-mobile">Skills</span>
+                <span class="tab-desktop">Skill Listings</span>
+              </button>
+              <button class="tab-btn" data-tab="swap-activity">
+                <span class="tab-mobile">Activity</span>
+                <span class="tab-desktop">Swap Activity</span>
+              </button>
+              <button class="tab-btn" data-tab="reports">
+                <span class="tab-mobile">Reports</span>
+                <span class="tab-desktop">Reports</span>
+              </button>
+              <button class="tab-btn active" data-tab="platform-messages">
+                <span class="tab-mobile">Messages</span>
+                <span class="tab-desktop">Platform Messages</span>
+              </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+              <!-- Users Tab -->
+              <div class="tab-pane" data-pane="users">
+                <div class="placeholder-content">
+                  <svg
+                    class="placeholder-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                  <h3>Users Management</h3>
+                  <p>User management features coming soon...</p>
+                </div>
+              </div>
+
+              <!-- Skill Listings Tab -->
+              <div class="tab-pane" data-pane="skill-listings">
+                <div class="placeholder-content">
+                  <svg
+                    class="placeholder-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <line x1="8" y1="6" x2="21" y2="6" />
+                    <line x1="8" y1="12" x2="21" y2="12" />
+                    <line x1="8" y1="18" x2="21" y2="18" />
+                    <line x1="3" y1="6" x2="3.01" y2="6" />
+                    <line x1="3" y1="12" x2="3.01" y2="12" />
+                    <line x1="3" y1="18" x2="3.01" y2="18" />
+                  </svg>
+                  <h3>Skill Listings</h3>
+                  <p>Skill listings management coming soon...</p>
+                </div>
+              </div>
+
+              <!-- Swap Activity Tab -->
+              <div class="tab-pane" data-pane="swap-activity">
+                <div class="placeholder-content">
+                  <svg
+                    class="placeholder-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <polyline points="22,12 18,12 15,21 9,3 6,12 2,12" />
+                  </svg>
+                  <h3>Swap Activity</h3>
+                  <p>Swap activity monitoring coming soon...</p>
+                </div>
+              </div>
+
+              <!-- Reports Tab -->
+              <div class="tab-pane" data-pane="reports">
+                <div class="placeholder-content">
+                  <svg
+                    class="placeholder-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+                    />
+                    <polyline points="14,2 14,8 20,8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                    <polyline points="10,9 9,9 8,9" />
+                  </svg>
+                  <h3>Reports</h3>
+                  <p>Reports dashboard coming soon...</p>
+                </div>
+              </div>
+
+              <!-- Platform Messages Tab -->
+              <div class="tab-pane active" data-pane="platform-messages">
+                <div class="compose-form">
+                  <h2>Compose Announcement</h2>
+                  <form id="announcementForm">
+                    <div class="form-group">
+                      <label for="subject">Subject</label>
+                      <input
+                        type="text"
+                        id="subject"
+                        placeholder="Enter announcement subject"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="message">Message</label>
+                      <textarea
+                        id="message"
+                        rows="6"
+                        placeholder="Type your announcement message here..."
+                      ></textarea>
+                    </div>
+                    <button
+                      type="submit"
+                      class="send-btn"
+                      id="sendBtn"
+                      disabled
+                    >
+                      Send Announcement
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Other Page Contents -->
+          <div class="page-content" data-content="dashboard">
+            <div class="placeholder-content">
+              <svg
+                class="placeholder-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect width="18" height="18" x="3" y="3" rx="2" />
+                <path d="M3 9h18" />
+                <path d="M3 15h18" />
+                <path d="M9 3v18" />
+                <path d="M15 3v18" />
+              </svg>
+              <h3>Dashboard</h3>
+              <p>This page is coming soon...</p>
+            </div>
+          </div>
+
+          <div class="page-content" data-content="search">
+            <div class="placeholder-content">
+              <svg
+                class="placeholder-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+              </svg>
+              <h3>Search</h3>
+              <p>This page is coming soon...</p>
+            </div>
+          </div>
+
+          <div class="page-content" data-content="swap-requests">
+            <div class="placeholder-content">
+              <svg
+                class="placeholder-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M8 3 4 7l4 4" />
+                <path d="M4 7h16" />
+                <path d="m16 21 4-4-4-4" />
+                <path d="M20 17H4" />
+              </svg>
+              <h3>Swap Requests</h3>
+              <p>This page is coming soon...</p>
+            </div>
+          </div>
+
+          <div class="page-content" data-content="profile">
+            <div class="placeholder-content">
+              <svg
+                class="placeholder-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+              <h3>Profile</h3>
+              <p>This page is coming soon...</p>
+            </div>
+          </div>
+
+          <div class="page-content" data-content="messages">
+            <div class="placeholder-content">
+              <svg
+                class="placeholder-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"
+                />
+                <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
+              </svg>
+              <h3>Messages</h3>
+              <p>This page is coming soon...</p>
+            </div>
+          </div>
+
+          <div class="page-content" data-content="settings">
+            <div class="placeholder-content">
+              <svg
+                class="placeholder-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"
+                />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <h3>Settings</h3>
+              <p>This page is coming soon...</p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
