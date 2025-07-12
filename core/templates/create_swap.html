@@ -1,7 +1,0 @@
-<form method="post">
-    {% csrf_token %}
-    <h2>Request Skill Swap: {{ skill.name }}</h2>
-    <p>With: {{ skill.user.username }}</p>
-    <label>Message: <textarea name="message"></textarea></label>
-    <button type="submit">Send Request</button>
-</form>
